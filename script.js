@@ -51,6 +51,57 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Past events carousel
+const pastEventsTrack = document.querySelector('.past-events-track');
+const pastEventCards = document.querySelectorAll('.past-event-card');
+const prevArrow = document.querySelector('.carousel-arrow-left');
+const nextArrow = document.querySelector('.carousel-arrow-right');
+
+if (pastEventsTrack && prevArrow && nextArrow && pastEventCards.length > 0) {
+  let currentIndex = 0;
+
+  function getVisibleCount() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
+  }
+
+  function getStepSize() {
+    const firstCard = pastEventCards[0];
+    const cardStyle = window.getComputedStyle(firstCard);
+    const cardWidth = firstCard.getBoundingClientRect().width;
+    const gap = parseFloat(cardStyle.marginRight) || parseFloat(window.getComputedStyle(pastEventsTrack).gap) || 0;
+    return cardWidth + gap;
+  }
+
+  function updateCarousel() {
+    const visibleCount = getVisibleCount();
+    const maxIndex = Math.max(0, pastEventCards.length - visibleCount);
+    currentIndex = Math.min(currentIndex, maxIndex);
+
+    const offset = currentIndex * getStepSize();
+    pastEventsTrack.style.transform = `translateX(-${offset}px)`;
+
+    prevArrow.disabled = currentIndex === 0;
+    nextArrow.disabled = currentIndex >= maxIndex;
+  }
+
+  prevArrow.addEventListener('click', () => {
+    currentIndex = Math.max(0, currentIndex - 1);
+    updateCarousel();
+  });
+
+  nextArrow.addEventListener('click', () => {
+    const visibleCount = getVisibleCount();
+    const maxIndex = Math.max(0, pastEventCards.length - visibleCount);
+    currentIndex = Math.min(maxIndex, currentIndex + 1);
+    updateCarousel();
+  });
+
+  window.addEventListener('resize', updateCarousel);
+  updateCarousel();
+}
+
 // Fade-in animation on scroll
 const observerOptions = {
   threshold: 0.1,
