@@ -420,6 +420,7 @@ img {
   text-align: center;
   transition: transform 0.3s ease;
   flex: 0 0 calc((100% - 50px) / 3);
+  min-width: 0;
 }
 
 .past-event-card:hover {
@@ -429,7 +430,8 @@ img {
 .past-event-image {
   border-radius: 12px;
   overflow: hidden;
-  aspect-ratio: 1;
+  height: min(26vw, 300px);
+  max-height: 300px;
   margin-bottom: 12px;
   background: #232350;
 }
@@ -595,6 +597,10 @@ img {
   .past-event-card {
     flex-basis: calc((100% - 25px) / 2);
   }
+
+  .past-event-image {
+    height: min(38vw, 300px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -643,6 +649,10 @@ img {
 
   .past-event-card {
     flex-basis: 100%;
+  }
+
+  .past-event-image {
+    height: min(70vw, 300px);
   }
 
   .carousel-arrow {
