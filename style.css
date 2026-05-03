@@ -210,41 +210,26 @@ img {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 60px;
   align-items: center;
-  background: #1a1a3a;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(126, 190, 197, 0.1);
-}
-
-.upcoming-feature:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 40px rgba(126, 190, 197, 0.15);
 }
 
 .event-image {
   width: 100%;
-  aspect-ratio: 4/3;
-  overflow: hidden;
-  background: #232350;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .event-image img {
   width: 100%;
-  height: 100%;
+  max-width: 520px;
+  height: auto;
   object-fit: contain;
-  object-position: center top;
-  transition: transform 0.4s ease;
-}
-
-.upcoming-feature:hover .event-image img {
-  transform: scale(1.05);
 }
 
 .upcoming-feature-content {
-  padding: 20px 25px 20px 0;
+  padding: 0;
 }
 
 .event-title {
@@ -260,20 +245,6 @@ img {
   text-align: left;
   color: #aaaaaa;
   font-size: 0.95rem;
-}
-
-.event-link {
-  display: inline-block;
-  text-align: left;
-  padding: 0;
-  color: #7EBEC5;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: color 0.3s ease;
-}
-
-.event-link:hover {
-  color: #a8dce2;
 }
 
 .event-link-text {
@@ -630,11 +601,11 @@ img {
 
   .upcoming-feature {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 30px;
   }
 
   .upcoming-feature-content {
-    padding: 20px 20px 24px;
+    padding: 0;
   }
 
   .about-grid {
