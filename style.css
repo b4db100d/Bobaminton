@@ -205,15 +205,13 @@ img {
   background: #12122a;
 }
 
-.events-grid {
+.upcoming-feature {
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
-}
-
-.event-card {
+  align-items: center;
   background: #1a1a3a;
   border-radius: 16px;
   overflow: hidden;
@@ -221,7 +219,7 @@ img {
   border: 1px solid rgba(126, 190, 197, 0.1);
 }
 
-.event-card:hover {
+.upcoming-feature:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 40px rgba(126, 190, 197, 0.15);
 }
@@ -240,29 +238,33 @@ img {
   transition: transform 0.4s ease;
 }
 
-.event-card:hover .event-image img {
+.upcoming-feature:hover .event-image img {
   transform: scale(1.05);
+}
+
+.upcoming-feature-content {
+  padding: 20px 25px 20px 0;
 }
 
 .event-title {
   font-family: 'Pacifico', cursive;
   font-size: 1.6rem;
-  text-align: center;
-  padding: 20px 20px 10px;
+  text-align: left;
+  padding: 0 0 12px;
   color: #ffffff;
 }
 
 .event-description {
-  padding: 0 25px 15px;
-  text-align: center;
+  padding: 0 0 18px;
+  text-align: left;
   color: #aaaaaa;
   font-size: 0.95rem;
 }
 
 .event-link {
-  display: block;
-  text-align: center;
-  padding: 15px 25px 25px;
+  display: inline-block;
+  text-align: left;
+  padding: 0;
   color: #7EBEC5;
   font-weight: 600;
   font-size: 0.95rem;
@@ -625,8 +627,13 @@ img {
     display: flex;
   }
 
-  .events-grid {
+  .upcoming-feature {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .upcoming-feature-content {
+    padding: 20px 20px 24px;
   }
 
   .about-grid {
