@@ -429,9 +429,14 @@ img {
 }
 
 .past-event-link {
+  display: block;
   font-size: 0.85rem;
   color: #7EBEC5;
   transition: color 0.3s ease;
+}
+
+.past-event-link + .past-event-link {
+  margin-top: 6px;
 }
 
 .past-event-link:hover {
